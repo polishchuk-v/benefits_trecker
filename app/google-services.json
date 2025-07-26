@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "396598380140",
+    "project_id": "benefitstracker-c522f",
+    "storage_bucket": "benefitstracker-c522f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396598380140:android:0abd52bb9ba041727d7a49",
+        "android_client_info": {
+          "package_name": "com.example.benefits_tracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOOzt8bQHqEcN3MkwmY4xicb6PGtJIOVg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
