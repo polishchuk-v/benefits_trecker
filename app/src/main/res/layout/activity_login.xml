@@ -5,24 +5,58 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/emailEditText"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="296dp"
+        android:layout_height="wrap_content"
+        android:text="Вітаємо"
+        android:textSize="47dp"
+        android:textStyle="bold"
+        android:width="700px"
+        android:fontFamily="sans-serif-light"/>
 
-    <EditText
-        android:id="@+id/passwordEditText"
-        android:hint="Пароль"
-        android:inputType="textPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/loginButtonWelcome"
-        android:text="Увійти"
+    <TextView
+        android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp" />
+        android:text="Зайдіть в свій обліковий запис, щоб користуватися додатком"
+        android:textSize="20dp"
+        android:layout_marginTop="10px"
+        android:fontFamily="sans-serif"
+        />
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120px"
+        android:text="Email" />
+    <EditText
+        android:id="@+id/editTextTextEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Введіть email"
+        android:inputType="textEmailAddress" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120px"
+        android:text="Пароль" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Введіть пароль"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120px"
+        android:text="Вхід" />
 </LinearLayout>
