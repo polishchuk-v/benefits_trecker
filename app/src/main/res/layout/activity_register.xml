@@ -9,7 +9,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textViewRegisterH1"
         android:layout_width="296dp"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"

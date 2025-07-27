@@ -1,22 +1,31 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/pale_sky_blue">
 
     <View
-        android:layout_width="600dp"
+        android:layout_width="700dp"
         android:layout_height="600dp"
         android:layout_gravity="top|end"
-        android:layout_marginTop="-110dp"
-        android:layout_marginEnd="-40dp"
-        android:background="@drawable/circle_background_navyblue" />
+        android:layout_marginTop="-90dp"
+        android:layout_marginEnd="-100dp"
+        android:background="@drawable/circle_background_dodger_blue" />
 
     <View
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="700dp"
+        android:layout_height="600dp"
         android:layout_gravity="top|end"
-        android:layout_marginTop="-100dp"
-        android:layout_marginEnd="-100dp"
-        android:background="@drawable/circle_background_navyblue" />
+        android:layout_marginTop="-170dp"
+        android:layout_marginEnd="-80dp"
+        android:background="@drawable/circle_background_midnight_blue" />
+
+    <View
+        android:layout_width="700dp"
+        android:layout_height="600dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="-215dp"
+        android:layout_marginEnd="-70dp"
+        android:background="@drawable/circle_background_deep_blue_graydeep" />
 
     <LinearLayout
         android:id="@+id/mainWelcome"
@@ -33,6 +42,7 @@
             android:fontFamily="sans-serif-light"
             android:gravity="center_vertical"
             android:text="Welcome!"
+            android:textColor="@color/white"
             android:textSize="60sp"
             android:textStyle="bold" />
 
@@ -44,6 +54,7 @@
             android:fontFamily="sans-serif-light"
             android:gravity="center_vertical"
             android:text="Nice to see you again!"
+            android:textColor="@color/white"
             android:textSize="23sp" />
 
         <Button
@@ -55,6 +66,7 @@
             android:fontFamily="sans-serif-light"
             android:text="Login"
             android:textSize="23sp"
+            android:textColor="@color/white"
             android:textStyle="bold" />
 
         <LinearLayout
