@@ -1,58 +1,90 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/mainWelcome"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#C9DBED"
-    android:orientation="vertical"
-    android:paddingLeft="35dp">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textViewWelcome"
-        android:layout_width="318dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:fontFamily="sans-serif-light"
-        android:gravity="center_vertical"
-        android:padding="0dp"
-        android:text="Welcome!"
-        android:textSize="60dp"
-        android:textStyle="bold" />
+    <View
+        android:layout_width="600dp"
+        android:layout_height="600dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="-110dp"
+        android:layout_marginEnd="-40dp"
+        android:background="@drawable/circle_background_navyblue" />
 
-    <TextView
-        android:id="@+id/textViewWelcomeH2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-light"
-        android:gravity="center_vertical"
-        android:padding="0dp"
-        android:text="Nice to see you again !"
-        android:textSize="23dp" />
+    <View
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="-100dp"
+        android:layout_marginEnd="-100dp"
+        android:background="@drawable/circle_background_navyblue" />
 
-    <Button
-        android:id="@+id/buttonLogin"
-        android:layout_width="159dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="@color/blue"
-        android:fontFamily="sans-serif-light"
-        android:text="Login"
-        android:textSize="23dp"
-        android:textStyle="bold" />
+    <LinearLayout
+        android:id="@+id/mainWelcome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="35dp"
+        android:paddingTop="72dp">
 
-    <TextView
-        android:id="@+id/linkToRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:autoLink="none"
-        android:clickable="true"
-        android:focusable="true"
-        android:padding="0dp"
-        android:text="Register"
-        android:textColor="#1A6BAD"
-        android:textSize="23dp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/textViewWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center_vertical"
+            android:text="Welcome!"
+            android:textSize="60sp"
+            android:textStyle="bold" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/textViewWelcomeH2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center_vertical"
+            android:text="Nice to see you again!"
+            android:textSize="23sp" />
+
+        <Button
+            android:id="@+id/buttonLogin"
+            android:layout_width="159dp"
+            android:layout_height="59dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/navyBlue"
+            android:fontFamily="sans-serif-light"
+            android:text="Login"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="380dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewWelcomeH3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="Don’t have an account? "
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/linkToRegisterWelcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="Register"
+                android:textColor="@color/navyBlue"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
