@@ -42,7 +42,7 @@
             android:fontFamily="sans-serif-light"
             android:gravity="center_vertical"
             android:text="Welcome!"
-            android:textColor="@color/white"
+            android:textColor="@color/pale_sky_blue"
             android:textSize="60sp"
             android:textStyle="bold" />
 
@@ -54,7 +54,7 @@
             android:fontFamily="sans-serif-light"
             android:gravity="center_vertical"
             android:text="Nice to see you again!"
-            android:textColor="@color/white"
+            android:textColor="@color/pale_sky_blue"
             android:textSize="23sp" />
 
         <Button
@@ -62,11 +62,11 @@
             android:layout_width="159dp"
             android:layout_height="59dp"
             android:layout_marginTop="24dp"
-            android:backgroundTint="@color/navyBlue"
+            android:backgroundTint="@color/steel_blue"
             android:fontFamily="sans-serif-light"
             android:text="Login"
+            android:textColor="@color/pale_sky_blue"
             android:textSize="23sp"
-            android:textColor="@color/white"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -92,7 +92,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:text="Register"
-                android:textColor="@color/navyBlue"
+                android:textColor="@color/steel_blue"
                 android:textSize="22sp"
                 android:textStyle="bold" />
         </LinearLayout>
