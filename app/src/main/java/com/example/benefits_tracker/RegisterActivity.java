@@ -16,12 +16,12 @@ public class RegisterActivity extends AppCompatActivity {
     private TextView linkToLogin;
     private EditText passwordEditText;
     private ImageView toggleImageView;
-    private boolean isPasswordVisible = false;
+    private boolean isPasswordInVisible = false;
 
     public void initViews() {
         buttonSignUp = findViewById(R.id.buttonRegisterSignUp);
         linkToLogin = findViewById(R.id.linkToLoginRegister);
-        passwordEditText = findViewById(R.id.editTextRegisterPassword);
+        passwordEditText = findViewById(R.id.editTextLoginPassword);
         toggleImageView = findViewById(R.id.imageViewTogglePassword);
     }
 
@@ -32,14 +32,14 @@ public class RegisterActivity extends AppCompatActivity {
         initViews();
 
         toggleImageView.setOnClickListener(v -> {
-            if (isPasswordVisible) {
+            if (isPasswordInVisible) {
                 passwordEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 toggleImageView.setImageResource(R.drawable.ic_eye_off);
             } else {
                 passwordEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
                 toggleImageView.setImageResource(R.drawable.ic_eye);
             }
-            isPasswordVisible = !isPasswordVisible;
+            isPasswordInVisible = !isPasswordInVisible;
 
             // Позиціюємо курсор в кінець тексту
             passwordEditText.setSelection(passwordEditText.length());
