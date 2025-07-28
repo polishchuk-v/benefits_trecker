@@ -2,19 +2,27 @@ package com.example.benefits_tracker;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    public Button buttonSignUp;
-    public TextView linkToLogin;
+    private Button buttonSignUp;
+    private TextView linkToLogin;
+    private EditText passwordEditText;
+    private ImageView toggleImageView;
+    private boolean isPasswordVisible = false;
 
-    public void initViews(){
+    public void initViews() {
         buttonSignUp = findViewById(R.id.buttonRegisterSignUp);
         linkToLogin = findViewById(R.id.linkToLoginRegister);
+        passwordEditText = findViewById(R.id.editTextRegisterPassword);
+        toggleImageView = findViewById(R.id.imageViewTogglePassword);
     }
 
     @Override
@@ -23,9 +31,23 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         initViews();
 
-//        buttonSignUp.setOnClickListener(v -> {
-//            // ----
-//        });
+        toggleImageView.setOnClickListener(v -> {
+            if (isPasswordVisible) {
+                passwordEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                toggleImageView.setImageResource(R.drawable.ic_eye_off);
+            } else {
+                passwordEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                toggleImageView.setImageResource(R.drawable.ic_eye);
+            }
+            isPasswordVisible = !isPasswordVisible;
+
+            // Позиціюємо курсор в кінець тексту
+            passwordEditText.setSelection(passwordEditText.length());
+        });
+
+        buttonSignUp.setOnClickListener(v -> {
+            // ----
+        });
 
         linkToLogin.setOnClickListener(v -> {
             startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
