@@ -21,9 +21,9 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void initViews() {
         buttonSignUp = findViewById(R.id.buttonRegisterSignUp);
-        linkToLogin = findViewById(R.id.linkToLoginRegister);
-        passwordEditText = findViewById(R.id.editTextLoginPassword);
-        toggleImageView = findViewById(R.id.imageViewTogglePassword);
+        linkToLogin = findViewById(R.id.linkToRegisterLogin);
+        passwordEditText = findViewById(R.id.editTextRegisterPassword);
+        toggleImageView = findViewById(R.id.imageViewToggleRegisterPassword);
     }
 
     @Override

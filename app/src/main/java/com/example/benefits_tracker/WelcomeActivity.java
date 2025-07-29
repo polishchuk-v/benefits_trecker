@@ -14,7 +14,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     public void initViews() {
         buttonLogin = findViewById(R.id.buttonLoginWelcome);
-        registerLink = findViewById(R.id.linkToLoginRegister);
+        registerLink = findViewById(R.id.linkToRegister);
     }
 
     @Override

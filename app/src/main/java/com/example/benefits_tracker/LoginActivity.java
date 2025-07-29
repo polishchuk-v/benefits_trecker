@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.InputType;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -19,11 +20,14 @@ public class LoginActivity extends AppCompatActivity {
     private ImageView toggleImageView;
     private boolean isPasswordInVisible = false;
 
+    public TextView forgotPassword;
+
     public void initViews() {
         buttonSignIn = findViewById(R.id.buttonLoginSignIn);
         linkToRegister = findViewById(R.id.linkToLoginRegister);
         passwordEditText = findViewById(R.id.editTextLoginPassword);
-        toggleImageView = findViewById(R.id.imageViewTogglePassword);
+        toggleImageView = findViewById(R.id.imageViewToggleLoginPassword);
+        forgotPassword = findViewById(R.id.linkToForgotPassword);
     }
 
     @Override
@@ -50,6 +54,10 @@ public class LoginActivity extends AppCompatActivity {
 
             // Позиціюємо курсор в кінець тексту
             passwordEditText.setSelection(passwordEditText.length());
+        });
+
+        forgotPassword.setOnClickListener(v -> {
+            startActivity(new Intent(LoginActivity.this, PasswordRecoveryActivity.class));
         });
 
 //        buttonSignIn.setOnClickListener(v -> {
