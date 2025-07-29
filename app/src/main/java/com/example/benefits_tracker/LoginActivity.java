@@ -1,6 +1,7 @@
 package com.example.benefits_tracker;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.InputType;
 import android.widget.Button;
@@ -32,6 +33,9 @@ public class LoginActivity extends AppCompatActivity {
         initViews();
 
         toggleImageView.setOnClickListener(v -> {
+            // Збереження шрифту перед натисканням на "око"
+            Typeface typeface = passwordEditText.getTypeface();
+
             if (isPasswordInVisible) {
                 passwordEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 toggleImageView.setImageResource(R.drawable.ic_eye_off);
@@ -39,6 +43,9 @@ public class LoginActivity extends AppCompatActivity {
                 passwordEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
                 toggleImageView.setImageResource(R.drawable.ic_eye);
             }
+            // Повернення шрифту після взаємодії з "оком"
+            passwordEditText.setTypeface(typeface);
+
             isPasswordInVisible = !isPasswordInVisible;
 
             // Позиціюємо курсор в кінець тексту
