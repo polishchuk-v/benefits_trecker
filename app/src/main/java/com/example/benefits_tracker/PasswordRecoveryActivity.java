@@ -2,6 +2,7 @@ package com.example.benefits_tracker;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -45,8 +46,8 @@ public class PasswordRecoveryActivity extends AppCompatActivity {
         buttonRecovery.setOnClickListener(v -> {
             String email = recoveryEmailEditText.getText().toString().trim();
 
-            if (email.isEmpty()) {
-                recoveryEmailEditText.setError("Enter email");
+            if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                recoveryEmailEditText.setError("Enter the correct email address");
                 recoveryEmailEditText.requestFocus();
                 return;
             }
