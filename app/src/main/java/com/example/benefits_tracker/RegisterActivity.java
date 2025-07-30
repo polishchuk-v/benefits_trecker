@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
@@ -75,54 +76,54 @@ public class RegisterActivity extends AppCompatActivity {
             String password = passwordEditText.getText().toString().trim();
 
             if (username.isEmpty()) {
-                nameEditText.setError("Введіть ім’я");
+                nameEditText.setError("Enter name");
                 nameEditText.requestFocus();
                 return;
             }
 
             if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                emailEditText.setError("Введіть правильний email");
+                emailEditText.setError("Enter the correct email address");
                 emailEditText.requestFocus();
                 return;
             }
 
             if (password.isEmpty() || password.length() < 6) {
-                passwordEditText.setError("Пароль має містити щонайменше 6 символів");
+                passwordEditText.setError("The password must be at least 6 characters long");
                 passwordEditText.requestFocus();
                 return;
             }
 
-            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
-                if (task.isSuccessful()) {
-                    FirebaseUser user = mAuth.getCurrentUser();
+            mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            FirebaseUser user = mAuth.getCurrentUser();
 
-                    Map<String, Object> userData = new HashMap<>();
-                    userData.put("username", username);
-                    userData.put("email", email);
-                    userData.put("uid", user.getUid());
 
-                    db.collection("users").document(user.getUid()).set(userData)
-                            .addOnSuccessListener(unused -> {
-                                Toast.makeText(RegisterActivity.this, "Реєстрація успішна", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "Реєстрація успішна", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(RegisterActivity.this, WelcomeActivity.class));
+                            finish();
 
-                                Intent intent = new Intent(RegisterActivity.this, WelcomeActivity.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                startActivity(intent);
-                                finish();
-                            })
-                            .addOnFailureListener(e -> {
-                                Toast.makeText(RegisterActivity.this, "Помилка збереження даних: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                            });
 
-                } else {
-                    Exception exception = task.getException();
-                    if (exception instanceof com.google.firebase.auth.FirebaseAuthUserCollisionException) {
-                        Toast.makeText(RegisterActivity.this, "Цей email вже використовується", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(RegisterActivity.this, "Помилка реєстрації: " + exception.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                }
-            });
+                            Map<String, Object> userData = new HashMap<>();
+                            userData.put("username", username);
+                            userData.put("email", email);
+                            userData.put("uid", user.getUid());
+
+                            db.collection("users").document(user.getUid()).set(userData)
+                                    .addOnFailureListener(e -> {
+                                        // Це повідомлення користувач не побачить, бо вже на іншій сторінці
+                                        Log.e("FirestoreError", "Помилка збереження даних: " + e.getMessage());
+                                    });
+                        } else {
+
+                            Exception exception = task.getException();
+                            if (exception instanceof com.google.firebase.auth.FirebaseAuthUserCollisionException) {
+                                Toast.makeText(RegisterActivity.this, "Цей email вже використовується", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(RegisterActivity.this, "Помилка реєстрації: " + exception.getMessage(), Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
         });
 
         linkToLogin.setOnClickListener(v -> {
