@@ -62,7 +62,7 @@
         android:fontFamily="sans-serif-light"
         android:hint="Enter email"
         android:textColorHint="@color/black"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:padding="10dp"
         android:textColor="@color/black"
         android:textSize="18sp"
