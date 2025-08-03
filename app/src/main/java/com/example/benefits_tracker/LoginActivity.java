@@ -97,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
                             Toast.makeText(LoginActivity.this, "Вхід успішний", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(LoginActivity.this, WelcomeActivity.class));
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             finish(); //
                         } else {
                             Toast.makeText(LoginActivity.this, "Помилка входа: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -110,8 +110,6 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
         });
 
-        buttonSignIn.setOnClickListener(v -> {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-        });
+
     }
 }

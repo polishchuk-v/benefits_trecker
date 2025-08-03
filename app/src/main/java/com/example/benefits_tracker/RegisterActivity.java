@@ -100,7 +100,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                             Toast.makeText(RegisterActivity.this, "Реєстрація успішна", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(RegisterActivity.this, WelcomeActivity.class));
+                            startActivity(new Intent(RegisterActivity.this, MainActivity.class));
                             finish();
 
 
@@ -130,8 +130,6 @@ public class RegisterActivity extends AppCompatActivity {
             startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
         });
 
-        buttonSignUp.setOnClickListener(v -> {
-            startActivity(new Intent(RegisterActivity.this, MainActivity.class));
-        });
+
     }
 }
