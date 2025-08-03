@@ -3,15 +3,13 @@ package com.example.benefits_tracker;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -19,6 +17,7 @@ public class PasswordRecoveryActivity extends AppCompatActivity {
 
     public AppCompatButton buttonBackSingIn, buttonRecovery;
     private EditText recoveryEmailEditText;
+    private ProgressBar progressBar;
 
     private FirebaseAuth mAuth;
 
@@ -26,6 +25,7 @@ public class PasswordRecoveryActivity extends AppCompatActivity {
         buttonBackSingIn = findViewById(R.id.buttonBackSingIn);
         buttonRecovery = findViewById(R.id.buttonRecovery);
         recoveryEmailEditText = findViewById(R.id.editTextRecoveryEmail);
+        progressBar = findViewById(R.id.registerProgressBar);
     }
 
     @Override
@@ -36,12 +36,11 @@ public class PasswordRecoveryActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        // Отримання email з LoginActivity
+        // Автозаповнення email, якщо передано
         String passedEmail = getIntent().getStringExtra("email");
         if (passedEmail != null) {
             recoveryEmailEditText.setText(passedEmail);
         }
-
 
         buttonRecovery.setOnClickListener(v -> {
             String email = recoveryEmailEditText.getText().toString().trim();
@@ -52,8 +51,12 @@ public class PasswordRecoveryActivity extends AppCompatActivity {
                 return;
             }
 
+            // Почати завантаження
+            setLoading(true);
+
             mAuth.sendPasswordResetEmail(email)
                     .addOnCompleteListener(task -> {
+                        setLoading(false);
                         if (task.isSuccessful()) {
                             Toast.makeText(PasswordRecoveryActivity.this, "Лист для скидання пароля надіслано", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(PasswordRecoveryActivity.this, LoginActivity.class));
@@ -71,5 +74,17 @@ public class PasswordRecoveryActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+    }
+
+    private void setLoading(boolean isLoading) {
+        if (isLoading) {
+            progressBar.setVisibility(View.VISIBLE);
+            buttonRecovery.setEnabled(false);
+            buttonBackSingIn.setEnabled(false);
+        } else {
+            progressBar.setVisibility(View.GONE);
+            buttonRecovery.setEnabled(true);
+            buttonBackSingIn.setEnabled(true);
+        }
     }
 }

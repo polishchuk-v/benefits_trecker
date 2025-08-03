@@ -9,22 +9,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
     private EditText emailEditText, passwordEditText;
     private boolean isPasswordInVisible = false;
     private ImageView toggleImageView;
-    public TextView forgotPassword;
-    public Button buttonSignIn;
-    public TextView linkToRegister;
-
+    private TextView forgotPassword;
+    private Button buttonSignIn;
+    private TextView linkToRegister;
+    private ProgressBar progressBar;
     private FirebaseAuth mAuth;
 
     public void initViews() {
@@ -34,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         buttonSignIn = findViewById(R.id.buttonLoginSignIn);
         linkToRegister = findViewById(R.id.linkToLoginRegister);
         emailEditText = findViewById(R.id.editTextLoginEmail);
+        progressBar = findViewById(R.id.registerProgressBar);
     }
 
     @Override
@@ -44,14 +47,12 @@ public class LoginActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        // Повертаємо email із PasswordRecoveryActivity, якщо він є
         String emailFromRecovery = getIntent().getStringExtra("email");
         if (emailFromRecovery != null) {
             emailEditText.setText(emailFromRecovery);
         }
 
         toggleImageView.setOnClickListener(v -> {
-            // Збереження шрифту перед натисканням на "око"
             Typeface typeface = passwordEditText.getTypeface();
 
             if (isPasswordInVisible) {
@@ -61,13 +62,10 @@ public class LoginActivity extends AppCompatActivity {
                 passwordEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
                 toggleImageView.setImageResource(R.drawable.ic_eye);
             }
-            // Повернення шрифту після взаємодії з "оком"
+
             passwordEditText.setTypeface(typeface);
-
-            isPasswordInVisible = !isPasswordInVisible;
-
-            // Позиціюємо курсор в кінець тексту
             passwordEditText.setSelection(passwordEditText.length());
+            isPasswordInVisible = !isPasswordInVisible;
         });
 
         forgotPassword.setOnClickListener(v -> {
@@ -78,6 +76,8 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         buttonSignIn.setOnClickListener(v -> {
+            if (progressBar.getVisibility() == View.VISIBLE) return; // запобігає дублюванню
+
             String email = emailEditText.getText().toString().trim();
             String password = passwordEditText.getText().toString().trim();
 
@@ -93,23 +93,32 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
 
+            progressBar.setVisibility(View.VISIBLE);
+            buttonSignIn.setEnabled(false);
+
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(task -> {
+                        progressBar.setVisibility(View.GONE);
+                        buttonSignIn.setEnabled(true);
+
                         if (task.isSuccessful()) {
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            if (user == null) {
+                                Toast.makeText(LoginActivity.this, "Login failed. Please try again.", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+
                             Toast.makeText(LoginActivity.this, "Вхід успішний", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                            finish(); //
+                            finish();
                         } else {
                             Toast.makeText(LoginActivity.this, "Помилка входа: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
         });
 
-
         linkToRegister.setOnClickListener(v -> {
             startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
         });
-
-
     }
 }

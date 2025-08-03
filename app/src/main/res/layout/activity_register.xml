@@ -7,6 +7,7 @@
     android:background="@color/pale_sky_blue"
     android:padding="24dp">
 
+
     <TextView
         android:id="@+id/textViewRegisterWelcome"
         android:layout_width="296dp"
@@ -203,5 +204,18 @@
         app:layout_constraintStart_toEndOf="@id/textViewRegisterLogin"
         app:layout_constraintTop_toTopOf="@id/textViewRegisterLogin"
         app:layout_constraintVertical_bias="1.0" />
+
+    <ProgressBar
+        android:id="@+id/registerProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/steel_blue"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/linkToRegisterLogin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
