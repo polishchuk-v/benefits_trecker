@@ -1,53 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Верхня панель -->
+    <LinearLayout
+        android:id="@+id/topRightMenu"
+        android:layout_width="46dp"
+        android:layout_height="42dp"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <!-- Список завдань -->
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/ic_menu" />
+    </LinearLayout>
 
     <ListView
         android:id="@+id/checklist"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/menuBar"
-        android:layout_above="@id/navigation"
-        android:padding="10dp" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomPanel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topRightMenu" />
 
-    <!-- Навігаційна панель -->
     <LinearLayout
-        android:id="@+id/navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/bottomPanel"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
         android:orientation="horizontal"
-        android:background="#f8f8f8"
-        android:padding="10dp">
+        android:gravity="center"
+        android:background="@color/bacground_black"
+        android:paddingHorizontal="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <Button
-            android:id="@+id/todayTasksButton"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Сьогоднішні завдання"
-            android:background="@drawable/round_button"/>
+            android:orientation="vertical"
+            android:gravity="center">
 
-        <Button
-            android:id="@+id/addTaskButton"
-            android:layout_width="114dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/round_button"
-            android:text="+" />
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_today"
+                android:contentDescription="Сьогодні" />
 
-        <Button
-            android:id="@+id/allTasksButton"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Сьогодні"
+                android:textSize="16sp"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Усі завдання"
-            android:background="@drawable/round_button"/>
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_tack"
+                android:contentDescription="Усі" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Усі"
+                android:textSize="16sp"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
     </LinearLayout>
 
-</RelativeLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addTaskButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:src="@drawable/ic_add"
+        android:contentDescription="Додати"
+        android:backgroundTint="@color/steel_blue"
+        app:tint="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomPanel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:elevation="8dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
