@@ -12,7 +12,6 @@
         <activity
             android:name=".PasswordRecoveryActivity"
             android:exported="false" />
-        <!-- Головна (welcome) активність -->
         <activity
             android:name=".WelcomeActivity"
             android:exported="true">

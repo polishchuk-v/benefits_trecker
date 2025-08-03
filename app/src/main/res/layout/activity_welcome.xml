@@ -61,7 +61,6 @@
         app:layout_constraintStart_toStartOf="@id/textViewWelcome"
         app:layout_constraintTop_toBottomOf="@id/textViewWelcome" />
 
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonLoginWelcome"
         android:layout_width="159dp"
@@ -100,7 +99,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:clickable="true"
-        android:focusable="true"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:fontFamily="sans-serif-light"
         android:text="Register"
         android:textColor="@color/steel_blue"

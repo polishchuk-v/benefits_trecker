@@ -36,7 +36,7 @@ public class PasswordRecoveryActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        // Автозаповнення email, якщо передано
+        // Повернення email
         String passedEmail = getIntent().getStringExtra("email");
         if (passedEmail != null) {
             recoveryEmailEditText.setText(passedEmail);
@@ -51,7 +51,6 @@ public class PasswordRecoveryActivity extends AppCompatActivity {
                 return;
             }
 
-            // Почати завантаження
             setLoading(true);
 
             mAuth.sendPasswordResetEmail(email)
@@ -59,12 +58,16 @@ public class PasswordRecoveryActivity extends AppCompatActivity {
                         setLoading(false);
                         if (task.isSuccessful()) {
                             Toast.makeText(PasswordRecoveryActivity.this, "Лист для скидання пароля надіслано", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(PasswordRecoveryActivity.this, LoginActivity.class));
+                            Intent intent = new Intent(PasswordRecoveryActivity.this, LoginActivity.class);
+                            // Передача email назад у LoginActivity
+                            intent.putExtra("email", email);
+                            startActivity(intent);
                             finish();
                         } else {
                             Toast.makeText(PasswordRecoveryActivity.this, "Помилка: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
+
         });
 
         buttonBackSingIn.setOnClickListener(view -> {

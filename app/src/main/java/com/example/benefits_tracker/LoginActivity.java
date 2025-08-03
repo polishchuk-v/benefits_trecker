@@ -53,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         toggleImageView.setOnClickListener(v -> {
+            // Збереження шрифту перед натисканням на "око"
             Typeface typeface = passwordEditText.getTypeface();
 
             if (isPasswordInVisible) {
@@ -63,8 +64,12 @@ public class LoginActivity extends AppCompatActivity {
                 toggleImageView.setImageResource(R.drawable.ic_eye);
             }
 
+            // Повернення шрифту після взаємодії з "оком"
             passwordEditText.setTypeface(typeface);
+
             passwordEditText.setSelection(passwordEditText.length());
+
+            // Позиціюємо курсор в кінець тексту
             isPasswordInVisible = !isPasswordInVisible;
         });
 

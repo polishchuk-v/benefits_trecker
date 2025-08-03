@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
 
         List<TaskItem> tasks = new ArrayList<>();
         tasks.add(new TaskItem("Drink Water", R.drawable.ic_water, false));
-        tasks.add(new TaskItem("Avoid Junk Food", R.drawable.ic_food, false));
         tasks.add(new TaskItem("Read Pages", R.drawable.ic_book, false));
         tasks.add(new TaskItem("Workout Session", R.drawable.ic_workout, false));
         tasks.add(new TaskItem("Doctor Appointment", R.drawable.ic_doctor, false));
