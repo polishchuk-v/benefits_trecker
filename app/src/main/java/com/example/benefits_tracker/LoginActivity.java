@@ -109,5 +109,9 @@ public class LoginActivity extends AppCompatActivity {
         linkToRegister.setOnClickListener(v -> {
             startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
         });
+
+        buttonSignIn.setOnClickListener(v -> {
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+        });
     }
 }
