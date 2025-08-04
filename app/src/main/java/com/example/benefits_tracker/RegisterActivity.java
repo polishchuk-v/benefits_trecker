@@ -76,7 +76,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         buttonSignUp.setOnClickListener(v -> {
-            // Блокування повторного натискання
+            // Блокування повторного натискання/
             if (progressBar.getVisibility() == View.VISIBLE) return;
 
             String username = nameEditText.getText().toString().trim();
