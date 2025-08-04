@@ -1,5 +1,6 @@
 package com.example.benefits_tracker;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -62,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
                             .inflate(R.layout.menu_item_with_icon, parent, false);
                 }
 
-                TextView title = convertView.findViewById(R.id.title);
-                ImageView icon = convertView.findViewById(R.id.icon);
+                TextView title = convertView.findViewById(R.id.text_menu);
+                ImageView icon = convertView.findViewById(R.id.ic_exit);
 
                 title.setText(menuTitles[position]);
 
@@ -82,8 +85,15 @@ public class MainActivity extends AppCompatActivity {
         listPopupWindow.setOnItemClickListener((parent, view, position, id) -> {
             int itemId = menuIds[position];
             if (itemId == R.id.menu_exit) {
-                Toast.makeText(MainActivity.this, "Вихід", Toast.LENGTH_SHORT).show();
+
+                // Вихід з Firebase
+                FirebaseAuth.getInstance().signOut();
+
+                Intent intent = new Intent(MainActivity.this, WelcomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
                 finish();
+
             } else if (itemId == R.id.menu_other) {
                 Toast.makeText(MainActivity.this, "Інше", Toast.LENGTH_SHORT).show();
             }
