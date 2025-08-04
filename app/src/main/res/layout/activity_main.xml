@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background_black"
+    >
 
     <LinearLayout
         android:id="@+id/topRightMenu"
@@ -40,7 +42,7 @@
         android:layout_height="80dp"
         android:orientation="horizontal"
         android:gravity="center"
-        android:background="@color/bacground_black"
+        android:background="@color/background_black"
         android:paddingHorizontal="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,8 +56,8 @@
             android:gravity="center">
 
             <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:src="@drawable/ic_today"
                 android:contentDescription="Сьогодні" />
 
@@ -64,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:text="Сьогодні"
                 android:textSize="16sp"
-                android:textColor="@android:color/black" />
+                android:textColor="@color/pale_sky_blue" />
         </LinearLayout>
 
         <View
@@ -80,8 +82,8 @@
             android:gravity="center">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:src="@drawable/ic_tack"
                 android:contentDescription="Усі" />
 
@@ -90,7 +92,7 @@
                 android:layout_height="wrap_content"
                 android:text="Усі"
                 android:textSize="16sp"
-                android:textColor="@android:color/black" />
+                android:textColor="@color/pale_sky_blue" />
         </LinearLayout>
     </LinearLayout>
 
