@@ -1,14 +1,15 @@
 package com.example.benefits_tracker;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListPopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,9 +17,9 @@ public class MainActivity extends AppCompatActivity {
 
     private LinearLayout topRightMenu;
 
-    private final int[] menuIds = {R.id.menu_logout, R.id.menu_more};
-    private final int menuLogoutIcon = R.drawable.ic_exit;
     private final String[] menuTitles = {"Вийти", "Інше"};
+    private final int[] menuIds = {R.id.menu_exit, R.id.menu_other};
+    private final int menuLogoutIcon = R.drawable.ic_exit;
 
     public void initViews() {
         topRightMenu = findViewById(R.id.topRightMenu);
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         listPopupWindow.setAnchorView(anchor);
         listPopupWindow.setWidth(600);
 
-        listPopupWindow.setAdapter(new android.widget.BaseAdapter() {
+        listPopupWindow.setAdapter(new BaseAdapter() {
             @Override
             public int getCount() {
                 return menuTitles.length;
@@ -66,12 +67,11 @@ public class MainActivity extends AppCompatActivity {
 
                 title.setText(menuTitles[position]);
 
-                if (menuIds[position] == R.id.menu_logout) {
+                if (menuIds[position] == R.id.menu_exit) {
                     icon.setVisibility(View.VISIBLE);
                     icon.setImageResource(menuLogoutIcon);
                     icon.clearColorFilter();
                 } else {
-                    // Залишаємо місце під іконку, але приховуємо її
                     icon.setVisibility(View.INVISIBLE);
                 }
 
@@ -81,10 +81,10 @@ public class MainActivity extends AppCompatActivity {
 
         listPopupWindow.setOnItemClickListener((parent, view, position, id) -> {
             int itemId = menuIds[position];
-            if (itemId == R.id.menu_logout) {
+            if (itemId == R.id.menu_exit) {
                 Toast.makeText(MainActivity.this, "Вихід", Toast.LENGTH_SHORT).show();
                 finish();
-            } else if (itemId == R.id.menu_more) {
+            } else if (itemId == R.id.menu_other) {
                 Toast.makeText(MainActivity.this, "Інше", Toast.LENGTH_SHORT).show();
             }
             listPopupWindow.dismiss();
