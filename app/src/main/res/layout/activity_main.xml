@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bacground_black">
 
     <LinearLayout
         android:id="@+id/topRightMenu"
@@ -38,33 +38,33 @@
         android:id="@+id/bottomPanel"
         android:layout_width="0dp"
         android:layout_height="80dp"
-        android:orientation="horizontal"
-        android:gravity="center"
         android:background="@color/bacground_black"
+        android:gravity="center"
+        android:orientation="horizontal"
         android:paddingHorizontal="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@drawable/ic_today"
-                android:contentDescription="Сьогодні" />
+                android:contentDescription="Сьогодні"
+                android:src="@drawable/ic_today" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Сьогодні"
-                android:textSize="16sp"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <View
@@ -76,21 +76,21 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_tack"
-                android:contentDescription="Усі" />
+                android:contentDescription="Усі"
+                android:src="@drawable/ic_tack" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Усі"
-                android:textSize="16sp"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -99,13 +99,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:src="@drawable/ic_add"
-        android:contentDescription="Додати"
         android:backgroundTint="@color/steel_blue"
-        app:tint="@android:color/white"
+        android:contentDescription="Додати"
+        android:elevation="8dp"
+        android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="@+id/bottomPanel"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:elevation="8dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:tint="@android:color/white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
