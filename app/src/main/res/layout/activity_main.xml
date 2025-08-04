@@ -65,7 +65,8 @@
                 android:layout_height="wrap_content"
                 android:text="Сьогодні"
                 android:textSize="16sp"
-                android:textColor="@color/pale_sky_blue" />
+                android:textColor="@color/pale_sky_blue"
+                android:fontFamily="sans-serif-light"/>
         </LinearLayout>
 
         <View
@@ -91,7 +92,8 @@
                 android:layout_height="wrap_content"
                 android:text="Усі"
                 android:textSize="16sp"
-                android:textColor="@color/pale_sky_blue" />
+                android:textColor="@color/pale_sky_blue"
+                android:fontFamily="sans-serif-light"/>
         </LinearLayout>
     </LinearLayout>
 
