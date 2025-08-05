@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_black">
+    android:background="@color/pale_sky_blue">
 
     <LinearLayout
         android:id="@+id/topRightMenu"
@@ -41,7 +41,7 @@
         android:layout_height="80dp"
         android:orientation="horizontal"
         android:gravity="center"
-        android:background="@color/background_black"
+        android:background="@color/pale_sky_blue"
         android:paddingHorizontal="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,7 @@
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:src="@drawable/ic_today"
+                android:src="@drawable/ic_today_light"
                 android:contentDescription="Сьогодні" />
 
             <TextView
@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:text="Сьогодні"
                 android:textSize="16sp"
-                android:textColor="@color/pale_sky_blue"
+                android:textColor="@color/black"
                 android:fontFamily="sans-serif-light"/>
         </LinearLayout>
 
@@ -84,7 +84,7 @@
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:src="@drawable/ic_tack"
+                android:src="@drawable/ic_tack_light"
                 android:contentDescription="Усі" />
 
             <TextView
@@ -92,7 +92,7 @@
                 android:layout_height="wrap_content"
                 android:text="Усі"
                 android:textSize="16sp"
-                android:textColor="@color/pale_sky_blue"
+                android:textColor="@color/black"
                 android:fontFamily="sans-serif-light"/>
         </LinearLayout>
     </LinearLayout>
