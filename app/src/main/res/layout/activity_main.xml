@@ -20,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/imageViewMenu"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:src="@drawable/ic_menu" />
@@ -55,18 +56,20 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/imageViewMain"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:src="@drawable/ic_today_light"
-                android:contentDescription="Сьогодні" />
+                android:contentDescription="Сьогодні"
+                android:src="@drawable/ic_today_light"/>
 
             <TextView
+                android:id="@+id/textViewMain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
                 android:text="Сьогодні"
                 android:textSize="16sp"
-                android:textColor="@color/black"
-                android:fontFamily="sans-serif-light"/>
+                android:textColor="@color/black"/>
         </LinearLayout>
 
         <View
@@ -82,18 +85,20 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/imageViewCalendar"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:src="@drawable/ic_tack_light"
-                android:contentDescription="Усі" />
+                android:contentDescription="Усі"
+                android:src="@drawable/ic_tack_light" />
 
             <TextView
+                android:id="@+id/textViewCalendar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
                 android:text="Усі"
                 android:textSize="16sp"
-                android:textColor="@color/black"
-                android:fontFamily="sans-serif-light"/>
+                android:textColor="@color/black"/>
         </LinearLayout>
     </LinearLayout>
 

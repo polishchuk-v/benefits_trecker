@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Benefits_tracker">
         <activity
+            android:name=".CalendarActivity"
+            android:exported="false" />
+        <activity
             android:name=".PasswordRecoveryActivity"
             android:exported="false" />
         <activity
@@ -27,8 +30,9 @@
         <activity
             android:name=".LoginActivity"
             android:exported="true" />
-        <activity android:name=".MainActivity"
-            android:exported="true"/>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

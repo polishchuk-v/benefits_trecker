@@ -78,6 +78,7 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(LoginActivity.this, PasswordRecoveryActivity.class);
             intent.putExtra("email", email);
             startActivity(intent);
+            finish();
         });
 
         buttonSignIn.setOnClickListener(v -> {
@@ -124,6 +125,7 @@ public class LoginActivity extends AppCompatActivity {
 
         linkToRegister.setOnClickListener(v -> {
             startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+            finish();
         });
     }
 }
