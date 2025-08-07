@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private final int menuLogoutIcon = R.drawable.ic_exit;
 
     public void initViews() {
+        //Ініціалязація кнопок
         topRightMenu = findViewById(R.id.topRightMenu);
         topRightMenu.setOnClickListener(this::showPopupMenu);
     }
