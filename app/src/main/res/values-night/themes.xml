@@ -1,15 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Benefits_tracker" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <item name="colorPrimary">@color/pale_sky_blue</item>
-        <item name="colorPrimaryVariant">@color/midnight_blue</item>
-        <item name="colorOnPrimary">@color/steel_blue</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/dodger_blue</item>
-        <item name="colorSecondaryVariant">@color/deep_blue_gray</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-    </style>
+        <style name="Theme.Benefits_tracker" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+            <!-- Customize your dark theme here. -->
+            <item name="colorPrimary">@color/pale_sky_blue</item>
+            <item name="colorPrimaryVariant">@color/midnight_blue</item>
+            <item name="colorOnPrimary">@color/steel_blue</item>
+            <!-- Secondary brand color. -->
+            <item name="colorSecondary">@color/dodger_blue</item>
+            <item name="colorSecondaryVariant">@color/deep_blue_gray</item>
+            <item name="colorOnSecondary">@color/black</item>
+            <!-- Status bar color. -->
+            <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        </style>
 </resources>

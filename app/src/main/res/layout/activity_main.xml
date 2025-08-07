@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pale_sky_blue">
+        android:background="@color/pale_sky_blue">
 
     <LinearLayout
         android:id="@+id/topRightMenu"
@@ -42,7 +42,7 @@
         android:layout_height="80dp"
         android:orientation="horizontal"
         android:gravity="center"
-        android:background="@color/pale_sky_blue"
+            android:background="@color/pale_sky_blue"
         android:paddingHorizontal="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +60,7 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:contentDescription="Сьогодні"
-                android:src="@drawable/ic_today_light"/>
+                    android:src="@drawable/light_ic_today"/>
 
             <TextView
                 android:id="@+id/textViewMain"
@@ -69,7 +69,7 @@
                 android:fontFamily="sans-serif-light"
                 android:text="Сьогодні"
                 android:textSize="16sp"
-                android:textColor="@color/black"/>
+                    android:textColor="@color/black"/>
         </LinearLayout>
 
         <View
@@ -89,7 +89,7 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:contentDescription="Усі"
-                android:src="@drawable/ic_tack_light" />
+                android:src="@drawable/light_ic_tack" />
 
             <TextView
                 android:id="@+id/textViewCalendar"
