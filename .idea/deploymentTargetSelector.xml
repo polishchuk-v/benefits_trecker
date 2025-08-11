@@ -2,21 +2,8 @@
 <project version="4">
   <component name="deploymentTargetSelector">
     <selectionStates>
-<<<<<<< HEAD
       <SelectionState runConfigName="Add">
         <option name="selectionMode" value="DROPDOWN" />
-=======
-      <SelectionState runConfigName="app">
-        <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-08-07T14:40:39.512264900Z">
-          <Target type="DEFAULT_BOOT">
-            <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Admin\.android\avd\Pixel_9_Pro.avd" />
-            </handle>
-          </Target>
-        </DropdownSelection>
-        <DialogSelection />
->>>>>>> cf446714bdc22470497716659223ca1899a0b09d
       </SelectionState>
     </selectionStates>
   </component>
