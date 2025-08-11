@@ -14,7 +14,9 @@
         android:focusable="true"
         android:gravity="top|end"
         android:orientation="vertical"
-        android:padding="8dp"
+        android:paddingTop="22dp"
+        android:paddingBottom="8dp"
+        android:paddingEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -49,6 +51,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
+            android:id="@+id/linearLayoutMain"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -78,6 +81,7 @@
             android:layout_weight="1" />
 
         <LinearLayout
+            android:id="@+id/linearLayoutCalendar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

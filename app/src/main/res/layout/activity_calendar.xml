@@ -10,11 +10,15 @@
         android:id="@+id/topRightMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
         android:clickable="true"
         android:focusable="true"
         android:gravity="top|end"
         android:orientation="vertical"
-        android:padding="8dp"
+        android:paddingTop="22dp"
+        android:paddingBottom="8dp"
+        android:paddingEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -26,11 +30,15 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="409dp"
         android:layout_height="767dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="59dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topRightMenu">
 
         <CalendarView
             android:id="@+id/calendarView"
@@ -44,7 +52,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical"
+                android:padding="12dp">
 
                 <ListView
                     android:id="@+id/tasklist"
@@ -68,6 +77,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
+            android:id="@+id/linearLayoutMain"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -97,6 +107,7 @@
             android:layout_weight="1" />
 
         <LinearLayout
+            android:id="@id/linearLayoutCalendar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
