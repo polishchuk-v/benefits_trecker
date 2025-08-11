@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/pale_sky_blue"
@@ -13,8 +14,12 @@
         android:titleTextColor="@android:color/white"
         android:title="Створити звичку">
         <Button
-            android:layout_width=""
-            android:layout_height=""
+            android:layout_width="126dp"
+            android:layout_height="42dp"
+            android:text="Створити"
+            android:layout_marginRight="0dp"
+            android:background="@drawable/round_button"/>
+
     </androidx.appcompat.widget.Toolbar>
 
 

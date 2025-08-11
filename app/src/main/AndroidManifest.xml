@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Benefits_tracker">
         <activity
-            android:name=".AddTaskActivity"
+            android:name=".AddActivity"
             android:exported="false" />
         <activity
             android:name=".CalendarActivity"
