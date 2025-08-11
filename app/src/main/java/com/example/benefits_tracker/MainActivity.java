@@ -19,29 +19,23 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MainActivity extends AppCompatActivity {
 
     private LinearLayout topRightMenu;
-
-    private final String[] menuTitles = {"Вийти", "Інше"};
-    private final int[] menuIds = {R.id.menu_exit, R.id.menu_other};
+    private final String[] menuTitles = {"Вийти"};
+    private final int[] menuIds = {R.id.menu_exit};
     private final int menuLogoutIcon = R.drawable.ic_exit;
+    private LinearLayout linearLayoutCalendar;
 
     public void initViews() {
-        //Ініціалязація кнопок
         topRightMenu = findViewById(R.id.topRightMenu);
         topRightMenu.setOnClickListener(this::showPopupMenu);
-    }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        initViews();
-
+        linearLayoutCalendar = findViewById(R.id.linearLayoutCalendar);
     }
 
     private void showPopupMenu(View anchor) {
         ListPopupWindow listPopupWindow = new ListPopupWindow(this);
         listPopupWindow.setAnchorView(anchor);
         listPopupWindow.setWidth(600);
+        listPopupWindow.setHorizontalOffset(anchor.getWidth());
 
         listPopupWindow.setAdapter(new BaseAdapter() {
             @Override
@@ -86,21 +80,27 @@ public class MainActivity extends AppCompatActivity {
         listPopupWindow.setOnItemClickListener((parent, view, position, id) -> {
             int itemId = menuIds[position];
             if (itemId == R.id.menu_exit) {
-
-                // Вихід з Firebase
                 FirebaseAuth.getInstance().signOut();
-
                 Intent intent = new Intent(MainActivity.this, WelcomeActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 finish();
-
-            } else if (itemId == R.id.menu_other) {
-                Toast.makeText(MainActivity.this, "Інше", Toast.LENGTH_SHORT).show();
             }
             listPopupWindow.dismiss();
         });
 
         listPopupWindow.show();
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        initViews();
+
+        linearLayoutCalendar.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, CalendarActivity.class));
+            finish();
+        });
     }
 }
