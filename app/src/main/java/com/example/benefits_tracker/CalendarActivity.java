@@ -17,7 +17,7 @@ import java.util.HashMap;
 public class CalendarActivity extends AppCompatActivity {
 
     private LinearLayout linearLayoutMain;
-
+    private
     private CalendarView calendarView;
     private ListView taskListView;
 
