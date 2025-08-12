@@ -6,15 +6,12 @@
     android:background="@color/pale_sky_blue"
     android:orientation="vertical">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="56dp"/>
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:navigationContentDescription="Back"
+        android:layout_marginTop="56dp"
         app:navigationIcon="@drawable/ic_arrow_back">
 
         <TextView

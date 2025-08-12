@@ -51,7 +51,6 @@ public class AddActivity extends AppCompatActivity {
                 // Наприклад, збереження даних або перехід на інший екран
             }
         });
->>>>>>> 010e88e1d443a293391480d1dbc2840dd2f70cfd
     }
 
     private void showDatePickerDialog() {
