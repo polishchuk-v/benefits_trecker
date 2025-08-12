@@ -2,6 +2,7 @@ package com.example.benefits_tracker;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.service.controls.actions.FloatAction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,11 +26,15 @@ public class MainActivity extends AppCompatActivity {
     private final int menuLogoutIcon = R.drawable.ic_exit;
     private LinearLayout linearLayoutCalendar;
 
+    private FloatingActionButton addTask;
+
     public void initViews() {
         topRightMenu = findViewById(R.id.topRightMenu);
         topRightMenu.setOnClickListener(this::showPopupMenu);
 
         linearLayoutCalendar = findViewById(R.id.linearLayoutCalendar);
+
+        addTask = findViewById(R.id.addTaskButton);
     }
 
     private void showPopupMenu(View anchor) {
@@ -100,6 +106,11 @@ public class MainActivity extends AppCompatActivity {
 
         linearLayoutCalendar.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, CalendarActivity.class));
+            finish();
+        });
+
+        addTask.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, AddActivity.class));
             finish();
         });
     }

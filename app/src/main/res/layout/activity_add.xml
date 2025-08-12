@@ -6,6 +6,10 @@
     android:background="@color/pale_sky_blue"
     android:orientation="vertical">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="56dp"/>
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -39,7 +43,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
+        android:padding="20dp"
         android:orientation="vertical">
 
         <TextView
@@ -71,36 +76,40 @@
             android:background="@android:color/transparent"
             android:popupBackground="#2A2A2A"
             android:spinnerMode="dropdown" />
+        <!--        Треба додати випливаюче вікно на календар-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="8dp"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/text_start_date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="11 серп. 2025"
-                android:textColor="@color/black" />
+                android:focusable="false"
+                android:clickable="false"
+                android:text="Дата спочатку"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
             <ImageButton
                 android:id="@+id/btn_pick_start_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_menu_my_calendar"
                 android:background="@android:color/transparent"
-                android:tint="@android:color/white" />
+                android:src="@android:drawable/ic_menu_my_calendar"
+                android:contentDescription="Обери дату"
+                app:tint="@color/steel_blue" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="8dp"
-            android:gravity="space_between">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -112,7 +121,7 @@
                 android:id="@+id/switch_end_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:thumbTint="#E91E63"
+                android:thumbTint="#1A6BAD"
                 android:trackTint="#555555" />
         </LinearLayout>
     </LinearLayout>
