@@ -2,7 +2,6 @@ package com.example.benefits_tracker;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.service.controls.actions.FloatAction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListPopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -110,8 +108,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         addTask.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, AddActivity.class));
-            finish();
+            Intent intent = AddActivity.newIntent(MainActivity.this);
+            startActivity(intent);
         });
     }
 }

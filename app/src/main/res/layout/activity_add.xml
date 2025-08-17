@@ -6,14 +6,12 @@
     android:background="@color/pale_sky_blue"
     android:orientation="vertical">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="56dp"/>
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="56dp"
         app:navigationContentDescription="Back"
         app:navigationIcon="@drawable/ic_arrow_back">
 
@@ -109,13 +107,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/text_end_date"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:focusable="false"
+                android:clickable="false"
                 android:text="Дата закінчення"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
 
             <Switch
                 android:id="@+id/switch_end_date"
